@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
+    <title>Login Page</title>
+</head>
+<body>
+    <div class="container" id="container">
+    {% if basari_mesaji %}
+        <div class="basari-paneli">
+            {{ basari_mesaji }}
+        </div>
+    {% endif %}
+        <div class="form-container sign-up">
+            <form id="kayitFormu" method="POST" action="/">
+                <h1>Kullanıcı Oluştur</h1>
+                <div class="social-icons">
+                    <a href="#" class="icon"><i class="fa-brands fa-google-plus-g"></i></a>
+                    <a href="#" class="icon"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" class="icon"><i class="fa-brands fa-github"></i></a>
+                    <a href="#" class="icon"><i class="fa-brands fa-linkedin-in"></i></a>
+                </div>
+
+                <span>Ya da E-Mail ile Kayıt Ol</span>
+                <input type="text" name="id" placeholder="ID" required />
+                <input type="text" name="number" placeholder="Number" required />
+                <input type="text" name="name" placeholder="Name" required />
+                <button type="submit" id="kaydiTamamlaButonu">Kaydı Başarıyla Tamamla</button>
+            </form>
+            <div id="mesajAlani"></div>
+        </div>
+
+        <div class="form-container sign-in">
+            <form>
+                <h1>Giriş Yapınız (Henüz Aktif Değil)</h1>
+                <div class="social-icons">
+                    <a href="#" class="icon"><i class="fa-brands fa-google-plus-g"></i></a>
+                    <a href="#" class="icon"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" class="icon"><i class="fa-brands fa-github"></i></a>
+                    <a href="#" class="icon"><i class="fa-brands fa-linkedin-in"></i></a>
+                </div>
+
+                <span>Ya da E-Mail ve Şifre Giriniz </span>
+
+                <input type="email" placeholder="Email" required />
+                <input type="password" placeholder="Password" required />
+
+                <button id="kayitOlButonu">Kayıt Ol</button>
+            </form>
+        </div>
+
+        <div class="toggle-container">
+            <div class="toggle">
+                <div class="toggle-panel toggle-left">
+                    <h1>Databaseme Hoşgeldiniz</h1>
+                    <p>Kayıtlıysanız Giriş Yap Kısmına Giriniz </p>
+                    <button class="hidden" id="login">Giriş Yap</button>
+                </div>
+
+                <div class="toggle-panel toggle-right">
+                    <h1>Merhaba Kullanıcı</h1>
+                    <p>Kayıt Olmak İçin Butona Basınız</p>
+                    <button class="hidden" id="register">Kayıt Ol</button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='index.js') }}"></script>
+</body>
+</html>
